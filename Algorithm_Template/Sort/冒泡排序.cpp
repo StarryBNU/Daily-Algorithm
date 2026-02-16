@@ -15,7 +15,7 @@ void Readin()
     for(int i=1;i<=n;i++)
     	scanf("%d%d",&k[i],&s[i]);
 }
-void bubble_sort() {
+/*void bubble_sort() {
   bool flag = true;
   while (flag) {
     flag = false;
@@ -29,6 +29,8 @@ void bubble_sort() {
     }
   }
 }
+*/
+void Selected
 void PrintOut()
 {
 	int RankLine=m*1.5;

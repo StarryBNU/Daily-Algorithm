@@ -10,7 +10,8 @@ void sift_down(long long* arr,int start,int end)
 {
 	int parent=start;
 	int child=parent*2+1;
-	while(child<end)
+//我仍然不理解为什么child<=end 
+	while(child<=end)
 	{
 		if (child + 1 <= end && arr[child] < arr[child + 1]) child++;
 		if (arr[parent] >= arr[child])
@@ -26,10 +27,12 @@ void heap_sort(long long* arr,int len)
 {
 	for (int i = (len - 1 - 1) / 2; i >= 0; i--) 
 		sift_down(arr, i, len - 1);
+//这一步是建堆 
 	for (int i = len - 1; i > 0; i--) {
     	swap(arr[0], arr[i]);
     	sift_down(arr, 0, i - 1);
   }
+//这一步是排序 
 }
 int main()
 {
