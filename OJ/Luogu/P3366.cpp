@@ -6,10 +6,10 @@
 #include <queue>
 #include <climits>
 using namespace std; 
-int n,m,a[20005][20005];
+int n,m,a[5005][5005];
+const int INF=0x3f; 
 template<int N>
 int prim(int n, const int (&graph)[N][N]) {
-    const int INF = INT_MAX;
     bool visited[N];
     int key[N];
     for (int i = 0; i < n; ++i) {
@@ -50,11 +50,14 @@ int prim(int n, const int (&graph)[N][N]) {
 int main()
 {
 	scanf("%d%d",&n,&m);
+	memset(a, 0x3f, sizeof(a));
 	for(int i=1;i<=m;i++)
 	{
 		int x,y;
 		scanf("%d%d",&x,&y);
+		x--,y--;
 		scanf("%d",&a[x][y]);
+		a[y][x]=a[x][y];
 	}
 	int ans=prim(n,a);
 	if(ans==-1)
