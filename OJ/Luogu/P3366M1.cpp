@@ -76,7 +76,7 @@ long long kruskal(int n, vector<Edge>& edges) {
         return -1;
     }
 }
-
+ 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);

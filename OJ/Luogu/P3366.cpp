@@ -1,3 +1,6 @@
+//时间：2026.2.17
+//tag：最小生成树 
+//优先队列优化版本 
 #include<cstdio>
 #include<cstring>
 #include<cmath>
@@ -7,7 +10,7 @@
 #include <climits>
 using namespace std; 
 int n,m,a[5005][5005];
-const int INF=0x3f; 
+const int INF=0x3f3f3f3f; 
 template<int N>
 int prim(int n, const int (&graph)[N][N]) {
     bool visited[N];
@@ -53,11 +56,13 @@ int main()
 	memset(a, 0x3f, sizeof(a));
 	for(int i=1;i<=m;i++)
 	{
-		int x,y;
+		int x,y,w;
 		scanf("%d%d",&x,&y);
 		x--,y--;
-		scanf("%d",&a[x][y]);
-		a[y][x]=a[x][y];
+		scanf("%d",&w);
+		if (w < a[x][y]) {
+    		a[x][y] = a[y][x] = w;
+		}
 	}
 	int ans=prim(n,a);
 	if(ans==-1)
