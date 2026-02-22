@@ -2,7 +2,7 @@
 using namespace std;
 
 int n, w, a[1005], f[10005];
-const int mod = 10000;  // 注意：P2834 模 10000！
+const int mod=1e9+7;
 
 int main() {
     scanf("%d%d", &n, &w);
@@ -10,8 +10,8 @@ int main() {
         scanf("%d", &a[i]);
     
     f[0] = 1;
-    for (int j = 1; j <= n; j++)          // 外层：纸币种类
-        for (int i = a[j]; i <= w; i++)   // 内层：金额从 a[j] 到 w
+    for (int j = 1; j <= n; j++)         
+        for (int i = a[j]; i <= w; i++)   
             f[i] = (f[i] + f[i - a[j]]) % mod;
     
     printf("%d", f[w]);
